@@ -39,9 +39,14 @@ USBケーブルを刺して通電するとLEDが光ります。スイッチを�
 こちらに1kのファームウェアのコードがありますので、keymapsのdefault等を参考にして新しいhexファイルをビルドしてください。
 https://github.com/MakotoKurauchi/qmk_firmware/tree/1k/keyboards/1k
 
-1kはブートローダーに[micronucleus](https://github.com/micronucleus/micronucleus)を使用しています。（ブートローダーは書き込み済みです）
+## 準備
 
-ここではWindowsのQMK MSYSを使用してhexファイルを1kにフラッシュする方法を説明します。（環境や時期によりこの通りに行かない場合もあります）
+1kはブートローダーに[micronucleus](https://github.com/micronucleus/micronucleus)を使用しています。（ブートローダーは書き込み済みです）
+書き込みツールは環境によりインストール方法が若干違います。
+
+### Windows
+
+[QMK MSYS](https://msys.qmk.fm/)環境での方法を説明します。
 
 まずWindowsの場合は予め[ドライバーをインストール](https://github.com/micronucleus/micronucleus/tree/master/windows_driver_installer)する必要がありますので忘れないようにしてください。
 
@@ -53,7 +58,20 @@ $ make
 $ mkdir /usr/local/bin/
 $ mv micronucleus.exe /usr/local/bin/
 ```
-成功すれば、下記の様にフラッシュが出来るようになります。
+### Mac (Intel)
+
+任意のディレクトリで下記のコマンドを実行して書き込みツールをインストールします。
+```
+git clone https://github.com/micronucleus/micronucleus.git
+sudo cp micronucleus/commandline/builds/x86_64-apple-darwin/micronucleus /usr/local/bin/
+```
+
+### Linux
+
+基本的にMacと同じです。micronucleus/commandline/builds/にある使用環境に合ったビルド済みのバイナリをパスの通ったディレクトリにコピーしてください。
+
+## 書き込み
+下記の様にフラッシュが出来るようになります。
 ```
 $ make 1k:default:flash
 ```
