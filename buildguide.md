@@ -37,7 +37,7 @@ USBケーブルを刺して通電するとLEDが光ります。スイッチを�
 特定の文字を入力するキーボードとして使用する場合は、QMKファームウェアについての知識が必要になります。（[公式のガイド](https://docs.qmk.fm/#/ja/newbs)を参考にしてください）
 
 こちらに1kのファームウェアのコードがありますので、keymapsのdefault等を参考にして新しいhexファイルをビルドしてください。
-https://github.com/MakotoKurauchi/qmk_firmware/tree/1k/keyboards/1k
+https://github.com/qmk/qmk_firmware/tree/master/keyboards/1k
 
 ## 準備
 
